@@ -12,13 +12,12 @@ def health():
 # /process?files=filename1,filename2
 @app.route('/process', methods=['GET'])
 def processFiles():
-    files = request.args.get('files')
-    if files:
-      files = files.split(',')
-      app.logger.info(f"Files to process: {files}")
+    folder_id = request.args.get('folder_id')
+    if folder_id:
+      app.logger.info(f"Folder to process: {folder_id}")
       try:
-        result = main(files)
-        return make_response(result, 200)
+        result = main(folder_id)
+        return make_response(jsonify(result), 200)
       except Exception as e:
         app.logger.error(f"Error processing files: {e}")
         return make_response(jsonify('error processing files'), 500)
