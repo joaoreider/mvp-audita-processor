@@ -3,6 +3,7 @@ from flask import Flask
 from flask import Flask, request, jsonify, make_response
 
 app = Flask(__name__)
+from main import main
 
 @app.route('/health', methods=['GET'])
 def health():
@@ -15,8 +16,14 @@ def processFiles():
     if files:
       files = files.split(',')
       app.logger.info(f"Files to process: {files}")
-      return make_response(jsonify({'files': files}), 200)
+      try:
+        result = main(files)
+        return make_response(result, 200)
+      except Exception as e:
+        app.logger.error(f"Error processing files: {e}")
+        return make_response(jsonify('error processing files'), 500)
     else:
+      app.logger.error('No files to process')
       return make_response(jsonify({'error': 'No files to process'}), 400)
     
 if __name__ == '__main__':
