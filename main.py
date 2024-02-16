@@ -1,10 +1,12 @@
 
 from time import time, sleep
 from app import app
+import json
+from flask import jsonify
 
 def get_folder_from_s3(folder_id):
   # Get folder from S3
-  return []
+  return ["file1.xlsx"]
 
 def treat_file(file):
   # treats and suits the files (trata e adéqua)
@@ -30,35 +32,17 @@ def main(s3_folder_id):
       treated_files = treat_file(s3_files)
     
       dataframed_file = analyze_file(file)
-      sleep(1)
+      sleep(.5)
 
       #TODO: Adicionar o dataframe do arquivo ao dataframe final
     
-    #TODO: Converter o dataframe final para JSON e retornar
-    mocked_json = {
-    "columns": [
-        "col 1",
-        "col 2"
-    ],
-    "index": [
-        "row 1",
-        "row 2"
-    ],
-    "data": [
-        [
-            "a",
-            "b"
-        ],
-        [
-            "c",
-            "d"
-        ]
-    ]
-}
-    
+    #TODO: Converter o dataframe final para JSON no formato do mock_response e retornar
+    with open('mock_response_large.json', 'r') as f:
+        data = json.load(f)
+
     end = time()
     app.logger.info(f"Processor finished in {round(end - start)} seconds")
-    return mocked_json
+    return data
     
   else:
     return 'No files to process'

@@ -1,0 +1,35 @@
+[
+  {
+    "registro": 407774142028,
+    "situacao_registro": "APROVADO",
+    "laboratorio": "sed augue aliquam",
+    "situacao_da_marca": "OK",
+    "situacao_do_preco": "Abaixo",
+    "preco_da_proposta": 17.89,
+    "preco_da_tabela": 51.47,
+    "descricao_da_proposta": "lectus vestibulum quam ",
+    "descricao_da_tabela": "ipsum integer a"
+  },
+  {
+    "registro": 701787137448,
+    "situacao_registro": "REPROVADO",
+    "laboratorio": "duis bibendum ",
+    "situacao_da_marca": "OK",
+    "situacao_do_preco": "Acima",
+    "preco_da_proposta": 75.54,
+    "preco_da_tabela": 74.02,
+    "descricao_da_proposta": "lectus vestibulum quam ",
+    "descricao_da_tabela": "ipsum integer a"
+  },
+  {
+    "registro": 306687037713,
+    "situacao_registro": "VERIFICAR",
+    "laboratorio": "gravida nisi ",
+    "situacao_da_marca": "inacessível",
+    "situacao_do_preco": "Inacessível",
+    "preco_da_proposta": 37.42,
+    "preco_da_tabela": 45.31,
+    "descricao_da_proposta": "lectus vestibulum quam ",
+    "descricao_da_tabela": "ipsum integer a"
+  }
+]
