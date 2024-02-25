@@ -26,4 +26,7 @@ def processFiles():
       return make_response(jsonify({'error': 'No files to process'}), 400)
     
 if __name__ == '__main__':
-    app.run(debug = True, host = '0.0.0.0')
+  #DEV
+  # app.run(debug = True, host = '0.0.0.0')
+  #PRD
+  app.run(host = '0.0.0.0', port=5000)
