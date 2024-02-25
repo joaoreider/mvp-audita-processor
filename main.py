@@ -16,7 +16,9 @@ def get_files_from_folder_from_s3(bucket_name, folder_id, s3_instance):
   files = []
   objects = s3_instance.list_objects(Bucket=bucket_name, Prefix=folder_id)
   for obj in objects['Contents']:
-    files.append(obj['Key'])
+    # Não incluir o arquivo de resultado na lista de arquivos a serem processados
+    if obj['Key'] != f"{folder_id}resultado.csv":
+      files.append(obj['Key'])
   return files
 
 def read_s3_excel_file(bucket, key, s3_instance):
