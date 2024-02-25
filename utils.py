@@ -1,5 +1,3 @@
-
-from app import app
 from unidecode import unidecode
 from difflib import SequenceMatcher
 from re import sub
