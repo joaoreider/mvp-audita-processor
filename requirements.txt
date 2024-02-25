@@ -1,1 +1,5 @@
 Flask
+boto3
+pandas
+openpyxl
+xlrd

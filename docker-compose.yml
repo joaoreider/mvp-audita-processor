@@ -13,4 +13,7 @@ services:
     environment:
       FLASK_DEBUG: 1
       FLASK_APP: ./app.py
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}
     volumes: [".:/app"]
