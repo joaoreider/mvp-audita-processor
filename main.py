@@ -165,6 +165,7 @@ def send_result_to_s3(bucket_name, path, s3_instance, result_dataframe):
   # Send result to S3
   csv_buffer = StringIO()
   result_dataframe.to_csv(csv_buffer, index=False, sep=';')
+  path = path if path.endswith('/') else f"{path}/"
   s3_instance.put_object(Bucket=bucket_name, Key=f"{path}resultado.csv", Body=csv_buffer.getvalue())
 
 def main(s3_folder_id):
