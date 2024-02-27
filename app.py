@@ -7,7 +7,12 @@ import main
 
 @app.route('/health', methods=['GET'])
 def health():
-    return make_response(jsonify({'status': 'healthy'}), 200)
+  try:
+    buckets = main.check_s3()
+    return make_response(jsonify(buckets), 200)
+  except Exception as e:
+    app.logger.error(f"Error checking s3: {e}")
+    return make_response(jsonify('error'), 500)
 
 # /process?files=filename1,filename2
 @app.route('/process', methods=['GET'])

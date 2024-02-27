@@ -160,6 +160,10 @@ def analyze_file(proposta, tabela_cmed):
 
     except: raise Exception('N foi possível montar o dataframe')
 
+def check_s3():
+   s3 = boto3.client('s3', region_name='us-east-1', aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'], aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY'])
+   return s3.list_buckets()
+   
 
 def send_result_to_s3(bucket_name, path, s3_instance, result_dataframe):
   # Send result to S3
